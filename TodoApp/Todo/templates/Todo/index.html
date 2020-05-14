@@ -1,0 +1,21 @@
+{% extends 'Todo/base.html' %}
+{% block body %}
+    <ul>
+        <div class="list-group">
+            {% for work in all_tasks %}
+                <li>
+                <borderlist>
+                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">{{ work.goal }}</h4>
+                            <small>{{ work.completed }}</small>
+                        </div>
+                        <p>{{ work.date }}</p>
+                   </a>
+                </borderlist>
+                </li>
+                <br>
+            {% endfor %}
+        </div>
+    </ul>
+{% endblock %}

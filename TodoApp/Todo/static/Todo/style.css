@@ -1,0 +1,17 @@
+body{
+    background: aqua;
+}
+.navbar{
+    border-radius: 0;
+}
+.navbar-brand{
+    font-family: 'Satisfy', cursive;
+}
+li{
+    box-decoration-break: slice;
+    list-style-type: none;
+}
+.borderlist{
+    list-style-position: inside;
+    border: 1px solid;
+}
