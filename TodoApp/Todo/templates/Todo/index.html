@@ -4,16 +4,27 @@
         <div class="list-group">
             {% for work in all_tasks %}
                 <li>
-                <borderlist>
-                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
                         <div class="d-flex w-100 justify-content-between">
+                            {% if work.completed == True %}
+                                <h6 id="Completed" class="mb-1">Completed Task</h6>
+                            {% else %}
+                                <h6 id="Pending" class="mb-1">Pending Task</h6>
+                            {% endif %}
                             <h4 class="mb-1">{{ work.goal }}</h4>
-                            <small>{{ work.completed }}</small>
-                            <p>{{ work.date }}</p>
+                            <h5>{{ work.date }}</h5>
+                            <!-- Button to remove tasks-->
+                            <form action="{% url 'Todo:delete_dailyworks' work.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="work_id" value="{{ work.id }}"/>
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-trash"></span>Remove
+                                </button>
+                            </form>
+
                         </div>
 
                    </a>
-                </borderlist>
                 </li>
                 <br>
             {% endfor %}

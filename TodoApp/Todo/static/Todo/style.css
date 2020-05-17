@@ -10,8 +10,11 @@ body{
 li{
     box-decoration-break: slice;
     list-style-type: none;
+    text-decoration-color: orange;
 }
-.borderlist{
-    list-style-position: inside;
-    border: 1px solid;
+#Completed {
+    text-decoration-color: forestgreen;
+}
+#Pending {
+    text-decoration-color: red;
 }

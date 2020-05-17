@@ -8,8 +8,6 @@ class DateInput(forms.DateInput):
     input_type = 'date'
 
 
-
-
 class DailyWorksForm(ModelForm):
     class Meta:
         model = DailyWorks

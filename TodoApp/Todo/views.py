@@ -1,8 +1,19 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse
+from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from django.views import generic
 from .models import DailyWorks
-from .forms import *
+from .forms import DailyWorksForm
+from django.shortcuts import render,get_object_or_404
+
+
+
+
+
+
+
+
+
 
 
 class IndexView(generic.ListView):
@@ -16,3 +27,24 @@ class IndexView(generic.ListView):
 class DailyWorksCreate(CreateView):
     model = DailyWorks
     form_class = DailyWorksForm
+
+
+
+def delete_dailyworks(request, work_id):
+    item = DailyWorks.objects.get(id=work_id)
+    item.delete()
+    items = DailyWorks.objects.filter()
+    return render(request, 'Todo/index.html', {'all_tasks': items})
+
+'''
+class DailyWorksDelete(DeleteView):
+    model = DailyWorks
+    success_url = reverse_lazy('Todo:index')
+
+
+
+def remove(request, item_id):
+    item = DailyWorks.objects.get(id=item_id)
+    item.delete()
+    return reverse_lazy('/')
+'''
