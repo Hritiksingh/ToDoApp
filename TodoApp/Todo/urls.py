@@ -11,6 +11,9 @@ urlpatterns = [
     url(r'dailyworks-add/$', views.DailyWorksCreate.as_view(), name='dailyworks_add'),
 
     # /Todo/dailyworks/2/delete/
-    url(r'^(?P<work_id>[0-9]+)/delete_dailyworks/$', views.delete_dailyworks, name='delete_dailyworks'),
+    url(r'^(?P<work_id>[0-9]+)/delete-dailyworks/$', views.delete_dailyworks, name='delete_dailyworks'),
+
+    # url to delete all the Tasks at once
+    url(r'^dailyworks-deleteAll/$', views.DeleteAllDailyWorks, name='dailyworks_deleteAll'),
 
 ]

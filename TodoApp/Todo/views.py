@@ -36,15 +36,3 @@ def delete_dailyworks(request, work_id):
     items = DailyWorks.objects.filter()
     return render(request, 'Todo/index.html', {'all_tasks': items})
 
-'''
-class DailyWorksDelete(DeleteView):
-    model = DailyWorks
-    success_url = reverse_lazy('Todo:index')
-
-
-
-def remove(request, item_id):
-    item = DailyWorks.objects.get(id=item_id)
-    item.delete()
-    return reverse_lazy('/')
-'''
