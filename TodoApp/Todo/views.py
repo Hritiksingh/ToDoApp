@@ -1,17 +1,8 @@
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
-from django.shortcuts import redirect
+from django.views.generic.edit import CreateView
 from django.views import generic
 from .models import DailyWorks
 from .forms import DailyWorksForm
-from django.shortcuts import render,get_object_or_404
-
-
-
-
-
-
-
+from django.shortcuts import render
 
 
 
@@ -36,3 +27,8 @@ def delete_dailyworks(request, work_id):
     items = DailyWorks.objects.filter()
     return render(request, 'Todo/index.html', {'all_tasks': items})
 
+
+def DeleteAllDailyWorks(request):
+    items = DailyWorks.objects.all()
+    items.delete()
+    return render(request, 'Todo/index.html')
